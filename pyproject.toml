@@ -1,0 +1,14 @@
+[project]
+name = "self-play-rlvr"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas>=2.3.3",
+    "tokenizer>=3.5.5",
+    "tokenizers>=0.22.1",
+    "torch>=2.9.1",
+    "transformers>=4.57.1",
+    "trl>=0.25.1",
+]
