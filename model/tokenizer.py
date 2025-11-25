@@ -8,7 +8,6 @@ from tokenizers import Tokenizer as TokenizerBase
 
 
 class Tokenizer:
-
     def __init__(self, tokenizer_path: str):
         super().__init__()
         tokenizer_config_path = Path(tokenizer_path).parent / "tokenizer_config.json"

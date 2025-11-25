@@ -1,7 +1,7 @@
-from dataclasses import dataclass, field, asdict
-from typing import List, Optional
-from datetime import date
 import json
+from dataclasses import asdict, dataclass, field
+from datetime import date
+from typing import List, Optional
 
 
 @dataclass
@@ -28,7 +28,7 @@ class SOAP:
     """emergency"""
 
     S: Optional[str] = None
-    O: Optional[str] = None
+    O: Optional[str] = None  # noqa: E741
     A: Optional[str] = None
     P: Optional[str] = None
 

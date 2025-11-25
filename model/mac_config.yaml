@@ -1,0 +1,19 @@
+model:
+  id: "HuggingFaceTB/SmolLM2-360M-Instruct"
+  dtype: "float16"
+data:
+  source_csv: "data/notes_icd_long_sample_100.csv"
+  tokenizer_path: "./tokenizer/tokenizer.json"
+  output_dir: "smol2-clinical-instruct"
+training:
+  batch_size: 1
+  eval_batch_size: 1
+  num_epochs: 1
+  max_steps: 30
+  learning_rate: 0.00005
+  logging_steps: 1
+  eval_steps: 1
+  save_steps: 30
+  max_grad_norm: 1.0
+  save_total_limit: 1
+save_model: true

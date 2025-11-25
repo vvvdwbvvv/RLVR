@@ -1,23 +1,29 @@
-import os, json, faiss, numpy as np, logging, warnings
-from sentence_transformers import SentenceTransformer
+import json
 
+import faiss
+from sentence_transformers import SentenceTransformer
 
 index = faiss.read_index("index.faiss")
 
-MODEL_NAME = 'sentence-transformers/all-MiniLM-L6-v2'
+MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 model = SentenceTransformer(MODEL_NAME)
 
-class Retrieve():
+
+class Retrieve:
     def __init__(self):
         self.top_k = 5
 
     def search(self, query: str, top_k: int):
-        q = model.encode([query], convert_to_numpy=True, normalize_embeddings=True).astype("float32")
+        q = model.encode(
+            [query], convert_to_numpy=True, normalize_embeddings=True
+        ).astype("float32")
         scores, idx = index.search(q, top_k)
 
         results = []
         for rank, score in enumerate(scores[0], start=1):
-            results.append({"rank": rank, "score": float(score), "query": query.strip()})
+            results.append(
+                {"rank": rank, "score": float(score), "query": query.strip()}
+            )
         return results
 
 
